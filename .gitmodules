@@ -1,0 +1,3 @@
+[submodule "vj"]
+	path = vj
+	url = https://github.com/seymourzhang/vj.git

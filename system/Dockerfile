@@ -1,3 +1,5 @@
+FROM openjdk:8-jdk-alpine
+
 ADD target/*.jar system.jar
 
 EXPOSE 9301
