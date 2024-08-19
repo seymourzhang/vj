@@ -1,0 +1,21 @@
+server:
+  port: 9302
+
+spring:
+  application:
+    name: task
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  datasource:
+    #配置hikari连接池
+    hikari:
+      minimum-idle: 4
+      maximum-pool-size: 100
+      connection-timeout: 10000
+      idle-timeout: 30000
+      connection-init-sql: set names utf8mb4
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://localhost:8848
