@@ -1,12 +1,11 @@
-FROM openjdk:8-jdk-alpine
+FROM openjdk:8
 
-ADD target/*.jar system.jar
+USER root
 
-EXPOSE 9301
+RUN mkdir -p /vj/system
 
-ENTRYPOINT ["java", "-jar", "/system.jar"]
+WORKDIR /vj/gateway
 
-#设置时区
-ENV TZ=Asia/Shanghai
+COPY ./system-1.0-SNAPSHOT.jar .
 
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+CMD ["java", "-jar", "system-1.0-SNAPSHOT.jar"]
